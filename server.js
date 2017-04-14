@@ -31,7 +31,16 @@ app.use(bodyParser.json());
 
 //Get all the users.
 app.get('/api/users', function (req, res, next) {
-    res.status(200).send(userCtrl.readAll);
+    res.status(200).send(userCtrl.readAll());
+});
+
+//Admin
+app.get('/api/admins', function (req, res, next) {
+    res.status(200).send(userCtrl.getAdmins());
+});
+
+app.get('/api/nonadmins', function (req, res, next) {
+    res.status(200).send(userCtrl.getNonAdmins());
 });
 
 //app.get('/api/users', userCtrl.readAll);
